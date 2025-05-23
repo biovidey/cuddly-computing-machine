@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cara Mengamankan Link Anda dengan Safelink: Panduan Lengkap untuk Keamanan Digital">
+    <title>Redirecting...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            text-align: justify;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        h1, h2, h3 {
+            color: #4CAF50;
+        }
+
+        p {
+            margin: 1rem 0;
+        }
+
+        .redirect-message {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cara Mengamankan Link Anda dengan Safelink: Panduan Lengkap untuk Keamanan Digital</h1>
+        <p><strong>Mengapa Keamanan Digital Penting di Era Modern?</strong> Keamanan digital semakin menjadi perhatian utama di era internet. Saat ini, data pribadi dan informasi sensitif dapat dengan mudah dicuri jika kita tidak berhati-hati. Salah satu langkah sederhana namun efektif untuk meningkatkan keamanan digital Anda adalah dengan menggunakan <strong>safelink</strong>.</p>
+
+        <h2>Apa Itu Safelink dan Bagaimana Cara Kerjanya?</h2>
+        <p>Safelink adalah alat yang membantu mengamankan URL atau tautan Anda sebelum membagikannya ke publik. Dengan safelink, Anda dapat meminimalkan risiko seperti phishing, malware, dan pelacakan ilegal. Safelink bekerja dengan cara mengenkripsi URL asli Anda dan memberikan lapisan perlindungan tambahan.</p>
+
+        <h2>Manfaat Menggunakan Safelink</h2>
+        <ul>
+            <li><strong>Keamanan Tambahan:</strong> Melindungi pengguna dari tautan berbahaya.</li>
+            <li><strong>Analitik:</strong> Memantau jumlah klik dan lokasi pengunjung.</li>
+            <li><strong>Monetisasi:</strong> Mengintegrasikan iklan pada halaman pengalihan untuk mendapatkan penghasilan.</li>
+        </ul>
+
+        <p class="redirect-message">Anda akan diarahkan ke tautan tujuan dalam <span id="countdown">5</span> detik...</p>
+    </div>
+
+    <script>
+        // Ambil parameter URL dari query string
+        const urlParams = new URLSearchParams(window.location.search);
+        const encodedUrl = urlParams.get("url");
+
+        // Decode URL yang dienkripsi dengan Base64
+        const originalUrl = atob(encodedUrl);
+
+        // Timer untuk hitungan mundur
+        let countdown = 5;
+        const countdownElement = document.getElementById("countdown");
+
+        const timer = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+
+            // Arahkan ke URL asli setelah hitungan mundur selesai
+            if (countdown === 0) {
+                clearInterval(timer);
+                window.location.href = originalUrl;
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
